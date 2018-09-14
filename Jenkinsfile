@@ -21,26 +21,12 @@ pipeline {
                         done 
                       """) 
                     println DIR;
-                    println "Directory size: " + DIR.size();
-                    
-                    for(i=0; i < DIR.size(); i++)
-                    {
-                        println "Value " + i + ":" + DIR[i];
-                        zip (
-                          archive: true, 
-                          dir: DIR[i], 
-                          glob: '', 
-                          zipFile: DIR[i] + ".zip"
-                      ) 
-                    
+                    DIR.each{
+                        println "directory names are ${it}" 
                     }
                     
-                    
-                    
                    }
-                    
-                    
-                    
+                     
             }
         }
 
