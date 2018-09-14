@@ -9,23 +9,19 @@ pipeline {
       
         stage('Archive parameters') {
             steps {
-                    
-                    sh """
+                script {
+                  def DIR = sh(returnStdout: true, script: """
                         env="Dev Qa Ci"
                         for envName in \$env;
                         do
                          for servicename in \$(find \$envName/ -maxdepth 1 -mindepth 1 -type d);
                           do
                             echo \$servicename
-                            zip (
-                                archive: true, 
-                                dir: \$servicename, 
-                                glob: '', 
-                                zipFile: \$servicename.zip
-                                ) 
                           done
                         done 
-                      """ 
+                      """) 
+                }
+                    
                     
                   /*  zip (
                       archive: true, 
