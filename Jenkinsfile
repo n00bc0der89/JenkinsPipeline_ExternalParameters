@@ -18,7 +18,7 @@ pipeline {
                     
                     sh """
                         env=( Dev Qa Ci)
-                        for envName in \\"${env[\\@]}\\"
+                        for envName in \\"${env[@]}\\"
                         do
                          for servicename in $(find $envName/ -maxdepth 1 -mindepth 1 -type d);
                           do
