@@ -20,8 +20,12 @@ pipeline {
                           done
                         done 
                       """) 
+                    println DIR;
+                    println "Directory size: " + DIR.size();
+                    
                     for(i=0; i < DIR.size(); i++)
                     {
+                        println "Value " + i + ":" + DIR[i];
                         zip (
                           archive: true, 
                           dir: DIR[i], 
