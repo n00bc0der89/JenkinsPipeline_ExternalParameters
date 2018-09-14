@@ -1,12 +1,6 @@
 pipeline {
     agent any
 
-    triggers
-    {
-        //Query repository every minute
-        pollSCM('* * * * *')
-    }
-
     stages {
 
         // Step 1: Performs the below activities
@@ -18,11 +12,12 @@ pipeline {
                     
                     sh """
                         env="Dev Qa Ci"
-                        for envName in $env;
+                        for envName in \$env;
+                        echo \$envName
                         do
-                         for servicename in \$(find $envName/ -maxdepth 1 -mindepth 1 -type d);
+                         for servicename in \$(find \$envName/ -maxdepth 1 -mindepth 1 -type d);
                           do
-                            echo $servicename
+                            echo \$servicename
                           done
                         done 
                       """ 
