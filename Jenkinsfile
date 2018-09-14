@@ -20,15 +20,23 @@ pipeline {
                           done
                         done 
                       """) 
-                }
+                    for(i=0; i < DIR.size(); i++)
+                    {
+                        zip (
+                          archive: true, 
+                          dir: DIR[i], 
+                          glob: '', 
+                          zipFile: DIR[i] + ".zip"
+                      ) 
+                    
+                    }
                     
                     
-                  /*  zip (
-                      archive: true, 
-                      dir: 'Dev/assessment-service', 
-                      glob: '', 
-                      zipFile: 'Dev/assessment-service.zip'
-                      ) */
+                    
+                   }
+                    
+                    
+                    
             }
         }
 
