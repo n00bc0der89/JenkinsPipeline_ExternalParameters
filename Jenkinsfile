@@ -15,12 +15,25 @@ pipeline {
       
         stage('Archive parameters') {
             steps {
-                    zip (
+                    
+                    sh """
+                        env=( Dev Qa Ci)
+                        for envName in "${env[@]}"
+                        do
+                         for servicename in $(find $envName/ -maxdepth 1 -mindepth 1 -type d);
+                          do
+                            echo $servicename
+                            #rm -f "${servicename}.zip"
+                          done
+                        done 
+                      """ 
+                    
+                  /*  zip (
                       archive: true, 
                       dir: 'Dev/assessment-service', 
                       glob: '', 
                       zipFile: 'Dev/assessment-service.zip'
-                      )
+                      ) */
             }
         }
 
