@@ -28,7 +28,8 @@ pipeline {
         stage('> Push the archive in nexus') {
             steps {
                    
-                    nexusArtifactUploader (
+                   echo "Push archive to nexus"
+ /*                    nexusArtifactUploader (
                       artifacts: [
                           [
                             artifactId: 'assessment-service', 
@@ -43,7 +44,7 @@ pipeline {
                        nexusVersion: 'nexus3', 
                        protocol: 'http', 
                        repository: 'ebrd_external_app_config', 
-                       version: '1.0.0')
+                       version: '1.0.0')  */
             }
         }
 
