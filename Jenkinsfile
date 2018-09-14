@@ -14,10 +14,15 @@ pipeline {
                         env="Dev Qa Ci"
                         for envName in \$env;
                         do
-                        echo \$envName
                          for servicename in \$(find \$envName/ -maxdepth 1 -mindepth 1 -type d);
                           do
                             echo \$servicename
+                            zip (
+                                archive: true, 
+                                dir: \$servicename, 
+                                glob: '', 
+                                zipFile: \$servicename.zip
+                                ) 
                           done
                         done 
                       """ 
