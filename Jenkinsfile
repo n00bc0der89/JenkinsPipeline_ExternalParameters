@@ -21,9 +21,10 @@ pipeline {
                         done 
                       """) 
                     println DIR;
-                    DIR.each{
+                    println DIR.getClass()
+                    /*DIR.each{
                         println "directory names are ${it}" 
-                    }
+                    }*/
                     
                    }
                      
