@@ -50,24 +50,29 @@ pipeline {
                 script {
                     arr.each{
                         println "directory names are ${it}"
-                    }
-                }
- /*                    nexusArtifactUploader (
+                    
+                        artifactname= "${it}.split('/')[1]";
+                        filename = "${it}.zip";      
+                        
+                     nexusArtifactUploader (
                       artifacts: [
                           [
-                            artifactId: 'assessment-service', 
+                            artifactId: artifactname, 
                             classifier: '', 
-                            file: 'Dev/assessment-service.zip', 
+                            file: filename, 
                             type: 'zip'
                           ]
                        ], 
                        credentialsId: 'nexus3_vm', 
                        groupId: 'com.ebrd.Dev', 
-                       nexusUrl: '10.199.44.21:8081', 
+                       nexusUrl: '192.168.33.10:8081', 
                        nexusVersion: 'nexus3', 
                        protocol: 'http', 
                        repository: 'ebrd_external_app_config', 
-                       version: '1.0.0')  */
+                       version: '1.0.0')  
+                    }
+                }
+                    
             }
         }
 
