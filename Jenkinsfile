@@ -51,7 +51,7 @@ pipeline {
                     arr.each{
                         println "directory names are ${it}"
                     
-                        artifactname= "${it}.split('/')[1]";
+                        artifactname= "${it}".split('/')[1];
                         filename = "${it}.zip";      
                         
                      nexusArtifactUploader (
