@@ -10,7 +10,7 @@ pipeline {
         stage('Archive parameters') {
             steps {
                 script {
-                   DIR = sh(returnStdout: true, script: """
+                  def DIR = sh(returnStdout: true, script: """
                         env="Dev Qa Ci"
                         for envName in \$env;
                         do
@@ -21,7 +21,7 @@ pipeline {
                         done 
                       """) 
                     println DIR;
-                    def arr= DIR.split()
+                    arr= DIR.split()
                     arr.each{
                         println "directory names are ${it}"
                         def dirname = "${it}"
@@ -47,7 +47,9 @@ pipeline {
             steps {
                    
                    echo "Push archive to nexus"
-                   println DIR;
+                    arr.each{
+                        println "directory names are ${it}"
+                    }
  /*                    nexusArtifactUploader (
                       artifacts: [
                           [
