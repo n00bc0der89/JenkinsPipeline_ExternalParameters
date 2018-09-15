@@ -10,7 +10,7 @@ pipeline {
         stage('Archive parameters') {
             steps {
                 script {
-                  def DIR = sh(returnStdout: true, script: """
+                   DIR = sh(returnStdout: true, script: """
                         env="Dev Qa Ci"
                         for envName in \$env;
                         do
