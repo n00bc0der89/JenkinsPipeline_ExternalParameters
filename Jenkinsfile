@@ -47,6 +47,7 @@ pipeline {
             steps {
                    
                    echo "Push archive to nexus"
+                   println DIR;
  /*                    nexusArtifactUploader (
                       artifacts: [
                           [
