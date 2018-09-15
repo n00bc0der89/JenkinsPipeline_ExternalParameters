@@ -23,7 +23,14 @@ pipeline {
                     println DIR;
                     def arr= DIR.split()
                     arr.each{
-                        println "directory names are ${it}" 
+                        println "directory names are ${it}"
+                        zip (
+                          archive: true, 
+                          dir: ${it}, 
+                          glob: '', 
+                          zipFile: ${it} + ".zip"
+                      ) 
+                        
                     }
                     
                    }
