@@ -24,8 +24,8 @@ pipeline {
                     def arr= DIR.split()
                     arr.each{
                         println "directory names are ${it}"
-                        def dirname = "'${it}'"
-                        def zipname = "'${it}'.zip"
+                        def dirname = "${it}"
+                        def zipname = "${it}.zip"
                         println "dir name is ${dirname}"
                         println "zip name is ${zipname}"
                         zip (
