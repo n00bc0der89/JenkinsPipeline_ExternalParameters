@@ -47,9 +47,11 @@ pipeline {
             steps {
                    
                    echo "Push archive to nexus"
+                script {
                     arr.each{
                         println "directory names are ${it}"
                     }
+                }
  /*                    nexusArtifactUploader (
                       artifacts: [
                           [
