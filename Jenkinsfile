@@ -21,10 +21,10 @@ pipeline {
                         done 
                       """) 
                     println DIR;
-                    println DIR.split()
-                    /*DIR.each{
+                    def arr= DIR.split()
+                    arr.each{
                         println "directory names are ${it}" 
-                    }*/
+                    }
                     
                    }
                      
