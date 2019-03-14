@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'docker-agent'}
+    agent none
 
     stages {
 
@@ -8,7 +8,7 @@ pipeline {
         //                  2. Push the archive in nexus
       
         stage('Archive parameters') {
-          //  agent {label 'docker-agent'}
+            agent {label 'docker-agent'}
             steps {
                 script {
                   def DIR = sh(returnStdout: true, script: """
@@ -45,7 +45,7 @@ pipeline {
 
 
         stage('> Push the archive in nexus') {
-        //    agent { label 'docker-agent' }
+            agent { label 'docker-agent-2' }
             steps {
                    
                    echo "Push archive to nexus"
