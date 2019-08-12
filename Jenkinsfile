@@ -1,6 +1,5 @@
 pipeline {
-    agent none
-    
+    agent none    
     stages {
         // Step 1: Performs the below activities
         //                  1. Archive the config file from repo where changes occured
