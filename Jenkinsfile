@@ -5,7 +5,6 @@ pipeline {
         //                  1. Archive the config file from repo where changes occured
         //                  2. Push the archive in nexus
         
-
         stage('Archive parameters') {
             agent {label 'docker-agent'}
             steps {
