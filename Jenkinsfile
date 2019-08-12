@@ -6,6 +6,7 @@ pipeline {
         //                  2. Push the archive in nexus
  
         
+
         stage('Archive parameters') {
             agent {label 'docker-agent'}
             steps {
