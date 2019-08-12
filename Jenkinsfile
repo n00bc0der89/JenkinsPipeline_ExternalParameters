@@ -1,6 +1,5 @@
 pipeline {
     agent none
-
     stages {
 
         // Step 1: Performs the below activities
