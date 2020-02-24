@@ -1,12 +1,12 @@
 pipeline {
-    agent none    
+    agent any    
     stages {
         // Step 1: Performs the below activities
         //                  1. Archive the config file from repo where changes occured
         //                  2. Push the archive in nexus
         
         stage('Archive parameters') {
-            agent {label 'docker-agent'}
+            //agent {label 'docker-agent'}
             steps {
                 script {
                   def DIR = sh(returnStdout: true, script: """
@@ -43,7 +43,7 @@ pipeline {
 
 
         stage('> Push the archive in nexus') {
-            agent { label 'docker-agent-2' }
+        //    agent { label 'docker-agent-2' }
             steps {
                    
                    echo "Push archive to nexus"
